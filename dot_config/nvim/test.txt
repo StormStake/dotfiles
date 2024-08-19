@@ -1,0 +1,20 @@
+
+autoindent 
+shiftwidth=4
+expandtab 
+softtabstop=4
+nowrap
+smartindent
+nu
+relativenumber
+hlsearch
+incsearch
+termguicolors
+scrolloff=8
+updatetime=50
+
+lazy-lock.json should be in chezmoi
+
+
+
+
