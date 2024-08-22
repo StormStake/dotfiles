@@ -1,0 +1,12 @@
+sudorootshell() {
+	if [ "$1" = "su" ]; then
+		sudo env HOME="${HOME}" bash -l
+	else
+		sudo $@
+	fi
+}
+alias sudo=sudorootshell
+
+test $(whoami) == root && source "${HOME}/.iterm2_shell_integration.bash" && export HOME=/root && return 0
+
+

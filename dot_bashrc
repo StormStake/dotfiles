@@ -1,6 +1,4 @@
 # .bashrc
-export EDITOR=vim
-alias vim=nvim
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -25,7 +23,25 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-source <(chezmoi completion bash)
+
+# User env
+
+
+alias vi=vim
+source $HOME/spack/share/spack/setup-env.sh
+export EDITOR=vim
+export VISUAL=vim
+
+# Keep user env when sudo su
+source $HOME/.bashrootshell
+
+# Perform lazy load neovim
+nvim() {
+    spack load chezmoi npm go neovim ripgrep bat fd rust
+    unset -f nvim
+    command nvim "$@"
+    source <(chezmoi completion bash)
+}
+
 
 unset rc
-. "$HOME/.cargo/env"
