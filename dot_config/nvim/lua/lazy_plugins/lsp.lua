@@ -8,6 +8,7 @@ return {
         keys = {
             { "<leader>lf", vim.lsp.buf.format,          desc = "Language server Format file" },
             { "<leader>ca", vim.lsp.buf.code_action,     desc = "language server Code Action" },
+            { "<leader>ld", vim.diagnostic.open_float,     desc = "Language server Diagnostic" },
             { "<leader>gd", vim.lsp.buf.definition,      desc = "Goto Definition" },
             { "<leader>lr", vim.lsp.buf.rename,          desc = "Langauge server Rename" },
             { "<leader>gr", vim.lsp.buf.references,      desc = "Goto References" },
