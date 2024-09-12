@@ -25,12 +25,14 @@ fi
 
 
 # User env
-
-
 alias vi=vim
 source $HOME/spack/share/spack/setup-env.sh
 export EDITOR=vim
 export VISUAL=vim
+
+# Prime login modules
+ml git
+
 
 # Keep user env when sudo su
 source $HOME/.bashrootshell
