@@ -39,7 +39,7 @@ source $HOME/.bashrootshell
 
 # Perform lazy load neovim
 nvim() {
-    spack load chezmoi npm go neovim ripgrep bat fd rust
+    spack load chezmoi npm go neovim ripgrep bat fd rust nnn
     unset -f nvim
     command nvim "$@"
     source <(chezmoi completion bash)
