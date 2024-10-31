@@ -1,6 +1,7 @@
 return {
   "0xstepit/flow.nvim",
   lazy = false,
+  commit = "b35e6b2381e4980e08fdf7549867270e10a6e59f",
   priority = 1000,
 
   opts = {},
