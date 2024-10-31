@@ -1,7 +1,9 @@
 return {
 
     { "echasnovski/mini.icons" },
-    { "luukvbaal/nnn.nvim",    opts = {} },
+    { "luukvbaal/nnn.nvim",    opts = {}, keys = {
+            { "<leader>ex", "<cmd>NnnExplorer<cr>", desc = "NNN" }
+        }},
     {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
