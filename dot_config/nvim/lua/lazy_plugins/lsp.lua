@@ -8,13 +8,17 @@ return {
         keys = {
             { "<leader>lf", vim.lsp.buf.format,          desc = "Language server Format file" },
             { "<leader>ca", vim.lsp.buf.code_action,     desc = "language server Code Action" },
-            { "<leader>ld", vim.diagnostic.open_float,     desc = "Language server Diagnostic" },
+            { "<leader>ld", vim.diagnostic.open_float,   desc = "Language server Diagnostic" },
             { "<leader>gd", vim.lsp.buf.definition,      desc = "Goto Definition" },
             { "<leader>lr", vim.lsp.buf.rename,          desc = "Langauge server Rename" },
             { "<leader>gr", vim.lsp.buf.references,      desc = "Goto References" },
             { "<leader>gr", vim.lsp.buf.execute_command, desc = "Goto References" },
 
-        }
+        },
+        config = function()
+            local lspconf = require("lspconfig")
+            lspconf.gleam.setup({})
+        end
     },
     {
         "williamboman/mason.nvim",
@@ -31,7 +35,7 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "rust_analyzer", "lua_ls", "vimls", "gopls", "pyright" },
+            ensure_installed = { "rust_analyzer@2024-10-14", "lua_ls", "vimls", "gopls", "pyright" },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup {}
@@ -44,6 +48,25 @@ return {
                         }
 
                     }
+                end,
+                ["ts_ls"] = function ()
+                    require("lspconfig").ts_ls.setup {
+                        -- on_attach = require("plugins.configs.lspconfig").on_attach,
+                        -- capabilities = require("plugins.configs.lspconfig").capabilities,
+                        init_options = {
+                            plugins = {
+                                {
+                                    name = "@vue/typescript-plugin",
+                                    location = "/home/aaron/.nvm/versions/node/v23.5.0/lib/node_modules/@vue/language-server",
+                                    languages = { "vue" },
+                                },
+                            },
+                        },
+                        filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+                    }
+                end,
+                ["volar"] = function ()
+                    require("lspconfig").volar.setup {}
                 end,
                 -- Setup lua_ls for nvim plugin configs
                 ["lua_ls"] = function()

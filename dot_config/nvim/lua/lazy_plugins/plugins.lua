@@ -1,9 +1,14 @@
 return {
 
     { "echasnovski/mini.icons" },
-    { "luukvbaal/nnn.nvim",    opts = {}, keys = {
+    {
+        "luukvbaal/nnn.nvim",
+        opts = {},
+        keys = {
             { "<leader>ex", "<cmd>NnnExplorer<cr>", desc = "NNN" }
-        }},
+        }
+    },
+    { 'akinsho/bufferline.nvim', version = "*", opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
     {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
