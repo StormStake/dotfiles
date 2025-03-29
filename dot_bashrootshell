@@ -8,5 +8,3 @@ sudorootshell() {
 alias sudo=sudorootshell
 
 test $(whoami) == root && source "${HOME}/.iterm2_shell_integration.bash" && export HOME=/root && return 0
-
-

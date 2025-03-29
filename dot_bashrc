@@ -11,9 +11,6 @@ then
 fi
 export PATH
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
@@ -26,24 +23,10 @@ fi
 
 # User env
 alias vi=vim
-source $HOME/spack/share/spack/setup-env.sh
 export EDITOR=vim
 export VISUAL=vim
 
-# Prime login modules
-ml git
-
-
 # Keep user env when sudo su
 source $HOME/.bashrootshell
-
-# Perform lazy load neovim
-nvim() {
-    spack load chezmoi npm go neovim ripgrep bat fd rust nnn lazygit
-    unset -f nvim
-    command nvim "$@"
-    source <(chezmoi completion bash)
-}
-
 
 unset rc
