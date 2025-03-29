@@ -19,3 +19,6 @@ vim.opt.incsearch=true
 -- Meta vim settings
 vim.opt.updatetime=50
 vim.opt.termguicolors=true
+
+-- Undo settings
+vim.opt.undofile=true
