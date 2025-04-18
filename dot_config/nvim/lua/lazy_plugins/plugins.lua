@@ -16,6 +16,11 @@ return {
     },
     { 'akinsho/bufferline.nvim', version = "*", opts = {}, dependencies = 'nvim-tree/nvim-web-devicons' },
     {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
+    {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
         config = function()
@@ -108,5 +113,20 @@ return {
                 desc = "Quickfix List (Trouble)",
             },
         },
-    }
+    },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    },
 }

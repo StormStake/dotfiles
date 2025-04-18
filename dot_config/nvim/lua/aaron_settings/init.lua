@@ -22,3 +22,6 @@ vim.opt.termguicolors=true
 
 -- Undo settings
 vim.opt.undofile=true
+
+vim.o.cmdheight = 0
+vim.opt.showmode = false
